@@ -20,7 +20,7 @@ const MainStyle = styled.div`
   .cardContainer {
     max-width: 960px;
     margin: 0 auto;
-    padding: 60px 40px 50px 40px;
+    padding: 60px 40px 40px 40px;
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 20px;

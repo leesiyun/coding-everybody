@@ -52,7 +52,7 @@ const FilterStyle = styled.div`
   user-select: none;
   cursor: pointer;
   width: 100%;
-  padding: 15px 0px;
+  padding: 20px 0px;
   display: flex;
   font-size: 14px;
   justify-content: center;
