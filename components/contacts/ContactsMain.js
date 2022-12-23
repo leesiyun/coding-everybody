@@ -1,28 +1,56 @@
-import styles from './contactsMain.module.scss'
+import styled from 'styled-components'
+import router from 'next/router'
+import {contactsData} from './contanctsData'
 
 const ContactsMain = () => {
+  const HandleClick = () => router.push('/contacts/detail')
   return (
-    <div className={styles.contactsMain}>
-      <div className={styles.tableTitle}>
-        <div>Name</div>
-        <div>Email</div>
-        <div>Phone number</div>
-      </div>
-      <div className={styles.tableMain}>
-        <div className={styles.contactsCount}>CONTACTS (2)</div>
-        <div>
-          <div className={styles.contactItem}>
-            <div className={styles.contactIcon}></div>
-            <div className={styles.contactName}>kim lisa</div>
+    <ContactsMainStyle>
+      <div className="contactsCount">CONTACTS (2)</div>
+      <div>
+        {contactsData.map(data => (
+          <div className="contactItem" key={data.id} onClick={HandleClick}>
+            <div className="contactIcon"></div>
+            <div className="contactName">
+              {data.first_name} {data.last_name}
+            </div>
+            <div>{data.email}</div>
+            <div>{data.phone_number}</div>
           </div>
-          <div className={styles.contactItem}>
-            <div className={styles.contactIcon}></div>
-            <div className={styles.contactName}>lee leesu</div>
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
+    </ContactsMainStyle>
   )
 }
 
 export default ContactsMain
+
+const ContactsMainStyle = styled.div`
+  padding: 20px 2%;
+
+  .contactsCount {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .contactItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    div {
+      &:nth-child(2) {
+        width: 38%;
+      }
+      &:nth-child(3) {
+        width: 27%;
+      }
+    }
+  }
+
+  .contactIcon {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+`

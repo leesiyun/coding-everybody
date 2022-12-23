@@ -1,39 +1,34 @@
-import Head from 'next/head'
-import Layout, {siteTitle} from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import {getSortedPostsData} from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
+import {Client} from '@notionhq/client'
+import Header from '../components/blog/Header'
+import Profile from '../components/blog/Profile'
+import Filter from '../components/blog/Filter'
+import Main from '../components/blog/Main'
 
-export default function Home({allPostsData}) {
+const Home = ({posts}) => {
+  console.log('一緒に働きませんか？😎　leesiyun.dev@gmail.com')
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({id, date, title}) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </Layout>
+    <>
+      <Header />
+      <Profile />
+      <Filter posts={posts} />
+      <Main posts={posts} />
+    </>
   )
 }
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+export default Home
+
+export const getStaticProps = async () => {
+  const notion = new Client({auth: process.env.NOTION_KEY})
+  const response = await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID,
+  })
+
   return {
     props: {
-      allPostsData,
+      posts: response.results.filter(
+        post => post.properties.status.status.name === 'published',
+      ),
     },
   }
 }
