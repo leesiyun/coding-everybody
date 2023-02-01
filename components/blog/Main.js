@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 import Card from './Card'
 
@@ -5,7 +6,9 @@ const Main = ({posts}) => (
   <MainStyle>
     <div className="cardContainer">
       {posts.map(post => (
-        <Card key={post.id} post={post} />
+        <Link href={`/post/${post.id}`} key={post.id}>
+          <Card post={post} />
+        </Link>
       ))}
     </div>
   </MainStyle>

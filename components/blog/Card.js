@@ -15,9 +15,7 @@ const Card = ({post}) => {
       <div className="card_title">
         {post.properties.title.title[0].plain_text}
       </div>
-      <div className="card_date">
-        {post.last_edited_time.slice(0, 10).replaceAll('-', '/')}
-      </div>
+      <div className="card_date">{post.last_edited_time.slice(0, 10)}</div>
     </CardStyle>
   )
 }

@@ -1,10 +1,11 @@
-import {Client} from '@notionhq/client'
+import {notionhq, databaseId} from '../lib/notion'
 import Header from '../components/blog/Header'
 import Profile from '../components/blog/Profile'
 import Filter from '../components/blog/Filter'
 import Main from '../components/blog/Main'
 
 const Home = ({posts}) => {
+  console.log(posts)
   console.log('一緒に働きませんか？😎　leesiyun.dev@gmail.com')
   return (
     <>
@@ -19,9 +20,8 @@ const Home = ({posts}) => {
 export default Home
 
 export const getStaticProps = async () => {
-  const notion = new Client({auth: process.env.NOTION_KEY})
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
+  const response = await notionhq.databases.query({
+    database_id: databaseId,
   })
 
   return {
