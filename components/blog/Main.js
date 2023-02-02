@@ -6,7 +6,7 @@ const Main = ({posts}) => (
   <MainStyle>
     <div className="cardContainer">
       {posts.map(post => (
-        <Link href={`/post/${post.id}`} key={post.id}>
+        <Link href={`/${post.id.replaceAll('-', '')}`} key={post.id}>
           <Card post={post} />
         </Link>
       ))}

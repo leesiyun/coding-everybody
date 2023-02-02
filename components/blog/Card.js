@@ -5,12 +5,7 @@ const Card = ({post}) => {
   return (
     <CardStyle>
       <div>
-        <img
-          src={post.cover?.file.url}
-          alt="cover image"
-          width="270"
-          height="160"
-        />
+        <div className="card_background"></div>
       </div>
       <div className="card_title">
         {post.properties.title.title[0].plain_text}
@@ -26,16 +21,24 @@ const CardStyle = styled.div`
   margin-top: 10px;
   border-radius: 13px;
   background-color: #fff;
-  max-width: 270px;
+  width: 270px;
   font-size: 16px;
   box-shadow: 0 4px 8px -2px #000a3c1a;
   overflow: hidden;
   transition: box-shadow 0.2s;
   cursor: pointer;
+  .card_background {
+    width: 270px;
+    height: 120px;
+    background-color: #f8bf52;
+  }
   .card_title {
-    padding: 10px 15px 5px 15px;
+    padding: 12px 15px 10px 15px;
     font-weight: 600;
-    height: 55px;
+    height: 75px;
+    color: #2c2c2c;
+    line-height: 22px;
+    word-break: break-all;
   }
   .card_date {
     padding: 10px 15px;
