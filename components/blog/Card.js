@@ -5,12 +5,12 @@ const Card = ({post}) => {
   return (
     <CardStyle>
       <div>
-        <div className="card_background"></div>
+        <div className="card-background"></div>
       </div>
-      <div className="card_title">
+      <div className="card-title">
         {post.properties.title.title[0].plain_text}
       </div>
-      <div className="card_date">{post.last_edited_time.slice(0, 10)}</div>
+      <div className="card-date">{post.last_edited_time.slice(0, 10)}</div>
     </CardStyle>
   )
 }
@@ -21,26 +21,32 @@ const CardStyle = styled.div`
   margin-top: 10px;
   border-radius: 13px;
   background-color: #fff;
-  width: 270px;
   font-size: 16px;
   box-shadow: 0 4px 8px -2px #000a3c1a;
   overflow: hidden;
   transition: box-shadow 0.2s;
   cursor: pointer;
-  .card_background {
-    width: 270px;
+  position: relative;
+  .card-background {
     height: 120px;
     background-color: #f8bf52;
   }
-  .card_title {
+  .card-title {
     padding: 12px 15px 10px 15px;
     font-weight: 600;
     height: 75px;
+    width: 300px;
+    @media (max-width: 1100px) {
+      width: 270px;
+    }
+    @media (max-width: 310px) {
+      width: 240px;
+    }
     color: #2c2c2c;
     line-height: 22px;
     word-break: break-all;
   }
-  .card_date {
+  .card-date {
     padding: 10px 15px;
     font-size: 12px;
     color: #b7c2cb;

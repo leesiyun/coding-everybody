@@ -27,9 +27,6 @@ const Post = ({recordMap, post}) => {
         <div className="post-title">
           {post[0].properties.title.title[0].plain_text}
         </div>
-        <div className="post-date">
-          {year}년 {month}월 {day}일
-        </div>
       </div>
       <NotionRenderer
         recordMap={recordMap}
@@ -50,20 +47,14 @@ export default Post
 const PostStyle = styled.div`
   .post-header {
     background-color: #fcecc4;
-    padding: 100px 75px 60px 75px;
+    padding: 100px 75px 100px 75px;
     .post-title {
-      font-size: 38px;
-      font-weight: 700;
+      font-size: 40px;
       padding: 0 0 10px 40px;
       max-width: 1000px;
       margin: 0 auto;
-    }
-    .post-date {
-      text-align: right;
-      color: #6d7b85;
-      font-size: 16px;
-      max-width: 1000px;
-      margin: 0 auto;
+      font-weight: 600;
+      line-height: 1.2;
     }
   }
 
@@ -75,7 +66,9 @@ const PostStyle = styled.div`
     .notion-page-no-cover {
       padding-top: 0;
     }
-
+    .notion-full-width {
+      padding: 0;
+    }
     .notion-page-content {
       max-width: 1000px;
       margin: 0 auto;
@@ -84,9 +77,12 @@ const PostStyle = styled.div`
     }
     .notion-page-icon-hero {
       top: -100px;
-      left: 55%;
       max-width: 100px;
       max-height: 100px;
+    }
+    .notion-collection-row {
+      margin: 40px auto 0 auto;
+      max-width: 900px;
     }
     .notion-code {
       padding: 20px 30px;

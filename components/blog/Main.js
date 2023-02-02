@@ -20,13 +20,22 @@ const MainStyle = styled.div`
   width: 100%;
   background-color: #fcecc4;
   min-height: 100vh;
+
   .cardContainer {
     max-width: 960px;
+    display: grid;
     margin: 0 auto;
     padding: 60px 40px 40px 40px;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin: 0 auto;
+    @media (max-width: 897px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 631px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @media (max-width: 500px) {
+      padding: 60px 20px 40px 20px;
+    }
   }
 `
