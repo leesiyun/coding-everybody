@@ -1,11 +1,17 @@
-import Image from 'next/image'
 import styled from 'styled-components'
 
 const Card = ({post}) => {
+  const isFile = post.icon.type === 'file'
+  const isEmoji = post.icon.type === 'emoji'
   return (
     <CardStyle>
       <div>
-        <div className="card-background"></div>
+        <div className="card-background">
+          {isFile && (
+            <img src={post.icon?.file.url} className="card-image-icon" />
+          )}
+          {isEmoji && <div className="card-icon">{post.icon?.emoji}</div>}
+        </div>
       </div>
       <div className="card-title">
         {post.properties.title.title[0].plain_text}
@@ -18,7 +24,7 @@ const Card = ({post}) => {
 export default Card
 
 const CardStyle = styled.div`
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
   border-radius: 13px;
   background-color: #fff;
   font-size: 16px;
@@ -27,21 +33,34 @@ const CardStyle = styled.div`
   transition: box-shadow 0.2s;
   cursor: pointer;
   position: relative;
+  width: 100%;
+  @media (max-width: 1100px) {
+    max-width: 400px;
+  }
   .card-background {
     height: 120px;
     background-color: #f8bf52;
   }
+
+  .card-image-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+    border-radius: 10px;
+  }
+
+  .card-icon {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
+  }
+
   .card-title {
     padding: 12px 15px 10px 15px;
     font-weight: 600;
     height: 75px;
-    width: 300px;
-    @media (max-width: 1100px) {
-      width: 270px;
-    }
-    @media (max-width: 310px) {
-      width: 240px;
-    }
     color: #2c2c2c;
     line-height: 22px;
     word-break: break-all;

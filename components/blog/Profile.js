@@ -17,10 +17,9 @@ const Profile = () => {
       <div className="profile_main">
         <div className="profile_name">Lee Siyun</div>
         <div>
-          こんにちは！フロントエンドエンジニアのシユンです。
-          好きな技術はReactでJAM Stackに関心が高いです。
-          <br />
-          エンジニアはSierから始めて、今年3年目になりました。
+          こんにちは！東京でフロントエンドエンジニアとして働いています。 jam
+          stackに関心が高くて好きですreactです。
+          現在react勉強会とフロントエンド勉強会を運営しています。
         </div>
       </div>
     </ProfileStyle>
