@@ -28,10 +28,10 @@ const MainStyle = styled.div`
     padding: 60px 40px 40px 40px;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    @media (max-width: 897px) {
+    @media (max-width: 790px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: 631px) {
+    @media (max-width: 550px) {
       grid-template-columns: repeat(1, 1fr);
     }
     @media (max-width: 500px) {
