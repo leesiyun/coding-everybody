@@ -8,7 +8,7 @@ const Comments = () => {
   const status = useScript({
     url: 'https://utteranc.es/client.js',
     theme: 'github-light',
-    issueTerm: 'url',
+    issueTerm: 'pathname',
     repo: 'leesiyun/blog-comments',
     ref: comment,
   })
