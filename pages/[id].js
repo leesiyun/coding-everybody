@@ -4,6 +4,7 @@ import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'katex/dist/katex.min.css'
 import styled from 'styled-components'
+import Comments from '@/components/blog/Comments'
 
 import dynamic from 'next/dynamic'
 
@@ -15,12 +16,6 @@ const Collection = dynamic(() =>
 )
 
 const Post = ({recordMap, post}) => {
-  const lastEditedTime = post[0].last_edited_time
-    .slice(0, 10)
-    .replaceAll('-', '')
-  const year = lastEditedTime.slice(0, 4)
-  const month = lastEditedTime.slice(5, 6)
-  const day = lastEditedTime.slice(7, 8)
   return (
     <PostStyle>
       <div className="post-header">
@@ -38,6 +33,7 @@ const Post = ({recordMap, post}) => {
           Collection,
         }}
       />
+      <Comments />
     </PostStyle>
   )
 }
@@ -45,6 +41,7 @@ const Post = ({recordMap, post}) => {
 export default Post
 
 const PostStyle = styled.div`
+  padding-bottom: 80px;
   .post-header {
     background-color: #fcecc4;
     padding: 100px 75px 100px 75px;
@@ -69,11 +66,14 @@ const PostStyle = styled.div`
     .notion-full-width {
       padding: 0;
     }
+    .notion-page {
+      min-height: 100px;
+    }
     .notion-page-content {
       max-width: 1000px;
       margin: 0 auto;
       background-color: #fff;
-      padding: 30px 50px 80px 50px;
+      padding: 30px 50px 0px 50px;
     }
     .notion-page-icon-hero {
       top: -100px;
@@ -88,6 +88,11 @@ const PostStyle = styled.div`
       padding: 20px 30px;
       border-radius: 8px;
     }
+  }
+
+  .utterances {
+    width: 90%;
+    max-width: 918px;
   }
 
   @media (max-width: 500px) {
