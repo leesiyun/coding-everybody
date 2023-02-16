@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 
 const Card = ({post}) => {
   const isFile = post.icon?.type === 'file'
@@ -8,7 +9,12 @@ const Card = ({post}) => {
       <div>
         <div className="card-background">
           {isFile && (
-            <img src={post.icon?.file.url} className="card-image-icon" />
+            <Image
+              src={post.icon?.file.url}
+              className="card-image-icon"
+              width={60}
+              height={60}
+            />
           )}
           {isEmoji && <div className="card-icon">{post.icon?.emoji}</div>}
         </div>
@@ -43,8 +49,6 @@ const CardStyle = styled.div`
   }
 
   .card-image-icon {
-    width: 60px;
-    height: 60px;
     margin: 0 auto;
     position: relative;
     top: 30px;
