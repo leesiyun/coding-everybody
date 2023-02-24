@@ -21,6 +21,22 @@ export default Home
 export const getStaticProps = async () => {
   const response = await notionhq.databases.query({
     database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: 'language',
+          select: {
+            equals: 'jp',
+          },
+        },
+        {
+          property: 'status',
+          status: {
+            equals: 'published',
+          },
+        },
+      ],
+    },
     sorts: [
       {
         timestamp: 'last_edited_time',
@@ -31,9 +47,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      posts: response.results.filter(
-        post => post.properties.status.status.name === 'published',
-      ),
+      posts: response.results,
     },
   }
 }
