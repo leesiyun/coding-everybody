@@ -74,6 +74,9 @@ const PostStyle = styled.div`
       margin: 0 auto;
       background-color: #fff;
       padding: 30px 50px 0px 50px;
+      .notion-bookmark-image {
+        display: none;
+      }
     }
     .notion-page-icon-hero {
       top: -100px;
