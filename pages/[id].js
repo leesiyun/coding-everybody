@@ -6,6 +6,9 @@ import 'katex/dist/katex.min.css'
 import styled from 'styled-components'
 import Comments from '@/components/blog/Comments'
 
+import * as TbIcons from 'react-icons/tb'
+import {useRouter} from 'next/router'
+
 import dynamic from 'next/dynamic'
 
 const Code = dynamic(() =>
@@ -16,9 +19,15 @@ const Collection = dynamic(() =>
 )
 
 const Post = ({recordMap, post}) => {
+  const router = useRouter()
+  const backspace = () => router.push('/')
+
   return (
     <PostStyle>
       <div className="post-header">
+        <div onClick={backspace} className="backspace">
+          <TbIcons.TbX className="icon" />
+        </div>
         <div className="post-title">
           {post[0].properties.title.title[0].plain_text}
         </div>
@@ -45,6 +54,17 @@ const PostStyle = styled.div`
   .post-header {
     background-color: #fcecc4;
     padding: 100px 75px 100px 75px;
+    .backspace {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 30px;
+      left: 25px;
+      cursor: pointer;
+      .icon {
+        font-size: 30px;
+      }
+    }
     .post-title {
       font-size: 40px;
       padding: 0 0 10px 40px;
