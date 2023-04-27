@@ -103,13 +103,92 @@ const PostStyle = styled.div`
       max-width: 100px;
       max-height: 100px;
     }
-    .notion-collection-row {
-      margin: 40px auto 0 auto;
-      max-width: 900px;
+    padding-bottom: 80px;
+    .post-header {
+      background-color: #fcecc4;
+      padding: 100px 75px 100px 75px;
+      .backspace {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 30px;
+        left: 25px;
+        cursor: pointer;
+        .icon {
+          font-size: 30px;
+        }
+      }
+      .post-title {
+        font-size: 40px;
+        padding: 0 0 10px 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+        font-weight: 600;
+        line-height: 1.2;
+      }
     }
-    .notion-code {
-      padding: 20px 30px;
-      border-radius: 8px;
+
+    .notion-post {
+      .notion-header,
+      .notion-title {
+        display: none;
+      }
+      .notion-page-no-cover {
+        padding-top: 0;
+      }
+      .notion-full-width {
+        padding: 0;
+      }
+      .notion-page {
+        min-height: 100px;
+      }
+      .notion-page-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px 50px 0px 50px;
+        .notion-bookmark-image {
+          display: none;
+        }
+      }
+      .notion-page-icon-hero {
+        top: -100px;
+        max-width: 100px;
+        max-height: 100px;
+      }
+      .notion-collection-row {
+        margin: 40px auto 0 auto;
+        max-width: 900px;
+      }
+      .notion-code {
+        padding: 20px 30px;
+        border-radius: 8px;
+      }
+    }
+
+    .utterances {
+      width: 90%;
+      max-width: 918px;
+    }
+
+    @media (max-width: 500px) {
+      .post-header {
+        padding: 70px 20px 60px 20px;
+        .post-title {
+          padding: 0 0 10px 10px;
+        }
+        .post-date {
+          padding-bottom: 20px;
+        }
+      }
+      .notion-post {
+        .notion-page-content {
+          padding: 30px 0px 80px 0px;
+        }
+        .notion-full-width {
+          padding: 0 20px;
+        }
+      }
     }
   }
 
@@ -160,7 +239,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({params}) => {
   const pageId = params.id
-  console.log(params)
   const response = await notionhq.databases.query({
     database_id: databaseId,
   })
