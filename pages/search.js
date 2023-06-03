@@ -1,7 +1,6 @@
 import {notionhq, databaseId} from '../lib/notion'
 import Header from '../components/blog/Header'
 import Search from '../components/blog/Search'
-import Filter from '../components/blog/Filter'
 import Main from '../components/blog/Main'
 
 const SearchPage = ({posts}) => {
@@ -9,7 +8,6 @@ const SearchPage = ({posts}) => {
     <>
       <Header />
       <Search />
-      <Filter posts={posts} />
       <Main posts={posts} />
     </>
   )

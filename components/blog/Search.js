@@ -1,14 +1,18 @@
 import styled from 'styled-components'
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 
 const Search = ({posts}) => {
   const [value, setValue] = useState('')
+  const inputRef = useRef(null)
+  useEffect(() => {
+    if (inputRef.current !== null) inputRef.current.focus()
+  })
 
   const handleChange = e => setValue(e.target.value)
 
   return (
     <SearchStyle>
-      <input onChange={handleChange} />
+      <input ref={inputRef} onChange={handleChange} />
     </SearchStyle>
   )
 }
