@@ -14,13 +14,14 @@ const Card = ({post}) => {
               className="card-image-icon"
               width={60}
               height={60}
+              alt="icon"
             />
           )}
           {isEmoji && <div className="card-icon">{post.icon?.emoji}</div>}
         </div>
       </div>
       <div className="card-title">
-        {post.properties.title.title[0].plain_text}
+        {post.properties.title.title[0]?.plain_text}
       </div>
       <div className="card-date">{post.last_edited_time.slice(0, 10)}</div>
     </CardStyle>

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 import '@fontsource/suez-one'
 import * as GoIcons from 'react-icons/go'
@@ -9,9 +10,11 @@ const Header = () => {
         <div className="title">
           <span>Siyun</span>log
         </div>
-        <div className="icon">
-          <GoIcons.GoSearch />
-        </div>
+        <Link href="/search">
+          <div className="icon">
+            <GoIcons.GoSearch />
+          </div>
+        </Link>
       </div>
     </HeaderStyle>
   )
