@@ -1,18 +1,18 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import '@fontsource/suez-one'
-import * as GoIcons from 'react-icons/go'
+import * as FaIcons from 'react-icons/fa'
 
 const Header = () => {
   return (
     <HeaderStyle>
       <div className="wrapper">
         <div className="title">
-          <span>Siyun</span>log
+          <span>SIYUN</span>LOG
         </div>
         <Link href="/search">
           <div className="icon">
-            <GoIcons.GoSearch />
+            <FaIcons.FaSearch />
           </div>
         </Link>
       </div>
@@ -31,10 +31,12 @@ const HeaderStyle = styled.div`
     display: flex;
     justify-content: space-between;
     .title {
-      font-family: 'Suez One', serif;
+      font-family: 'Poppins', serif;
+      font-weight: 800;
       font-size: 30px;
       span {
-        color: #f6ab00;
+        color: #fff;
+        text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
       }
     }
     .icon {
