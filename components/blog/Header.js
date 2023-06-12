@@ -23,13 +23,16 @@ const Header = () => {
 export default Header
 
 const HeaderStyle = styled.div`
-  max-width: 1200px;
+  width: 100%;
   margin: 10px auto;
   font-size: 20px;
-  padding: 0 40px;
+  padding: 0px 40px 10px 40px;
+  border-bottom: 1px solid #000;
   .wrapper {
     display: flex;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
     .title {
       font-family: 'Poppins', serif;
       font-weight: 800;

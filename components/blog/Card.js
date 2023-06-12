@@ -7,7 +7,7 @@ const Card = ({post}) => {
   return (
     <CardStyle>
       <div>
-        <div className="card-background">
+        <div className="card-image">
           {isFile && (
             <Image
               src={post.icon?.file.url}
@@ -32,10 +32,9 @@ export default Card
 
 const CardStyle = styled.div`
   margin: 10px auto 0 auto;
-  border-radius: 13px;
-  background-color: #fff;
+  border-radius: 30px;
+  border: 1px solid #000;
   font-size: 16px;
-  box-shadow: 0 4px 8px -2px #000a3c1a;
   overflow: hidden;
   transition: box-shadow 0.2s;
   cursor: pointer;
@@ -44,9 +43,9 @@ const CardStyle = styled.div`
   @media (max-width: 1100px) {
     max-width: 400px;
   }
-  .card-background {
+  .card-image {
     height: 120px;
-    background-color: #f8bf52;
+    border-bottom: 1px solid #000;
   }
 
   .card-image-icon {
@@ -65,13 +64,15 @@ const CardStyle = styled.div`
   .card-title {
     padding: 12px 15px 10px 15px;
     font-weight: 600;
-    height: 75px;
+    height: 62px;
     color: #2c2c2c;
+    background-color: #fff;
     line-height: 22px;
     word-break: break-all;
   }
   .card-date {
-    padding: 10px 15px;
+    padding: 10px 15px 15px 20px;
+    background-color: #fff;
     font-size: 12px;
     color: #b7c2cb;
   }

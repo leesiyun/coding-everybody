@@ -18,9 +18,8 @@ export default Main
 
 const MainStyle = styled.div`
   width: 100%;
-  background-color: #fcecc4;
   min-height: 100vh;
-
+  border-top: 1px solid #000;
   .cardContainer {
     max-width: 960px;
     display: grid;
