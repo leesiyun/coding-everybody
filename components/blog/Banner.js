@@ -44,10 +44,10 @@ const BannerStyle = styled.div`
       height: 470px;
     }
     @media (max-width: 420px) {
-      height: 420px;
+      height: 390px;
     }
     @media (max-width: 320px) {
-      height: 380px;
+      height: 370px;
     }
     .image {
       position: absolute;
@@ -71,7 +71,7 @@ const BannerStyle = styled.div`
         height: 280px;
         left: 4%;
       }
-      @media (max-width: 300px) {
+      @media (max-width: 320px) {
         width: 260px;
         height: 260px;
       }
@@ -107,7 +107,7 @@ const BannerStyle = styled.div`
           font-size: 100px;
           margin: auto 20px;
         }
-        @media (max-width: 300px) {
+        @media (max-width: 320px) {
           font-size: 80px;
           margin: auto 20px;
         }
