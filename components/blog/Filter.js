@@ -170,6 +170,9 @@ const FilterStyle = styled.div`
   cursor: pointer;
   width: 100%;
   padding: 18px 30px;
+  @media (max-width: 500px) {
+    padding: 18px 20px;
+  }
   display: flex;
   flex-direction: row;
   font-size: 14px;

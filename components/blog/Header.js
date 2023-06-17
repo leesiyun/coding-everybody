@@ -28,6 +28,9 @@ const HeaderStyle = styled.div`
   @media (max-width: 800px) {
     padding-right: 40px;
   }
+  @media (max-width: 500px) {
+    padding: 0 20px 8px 20px;
+  }
   border-bottom: 1px solid #000;
   display: flex;
   justify-content: space-between;
