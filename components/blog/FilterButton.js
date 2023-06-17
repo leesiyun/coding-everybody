@@ -13,18 +13,24 @@ export default FilterButton
 const FilterButtonStyle = styled.div`
   .icon {
     display: flex;
-    margin: 0 4px;
     padding: 4px 18px;
     background: #ffffff;
     border: 1px solid #000000;
     border-radius: 8px;
     height: 32px;
+    white-space: nowrap;
     .icon_image {
       margin-right: 10px;
       width: 20px;
       height: 20px;
       margin-top: 1px;
     }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 16px 0px #000a3c1a;
+    transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
   }
 
   .css {

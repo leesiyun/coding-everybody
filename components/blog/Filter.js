@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import {useRef, useState} from 'react'
+
 import {
   Css,
   EsLint,
@@ -128,7 +130,37 @@ const Filter = ({posts}) => {
     })
   }
 
-  return <FilterStyle>{filterRendering()}</FilterStyle>
+  const scrollRef = useRef(null)
+  const [isDrag, setIsDrag] = useState(false)
+  const [startX, setStartX] = useState()
+
+  const handelDragStart = e => {
+    e.preventDefault()
+    setIsDrag(true)
+    setStartX(e.pageX + scrollRef.current.scrollLeft)
+  }
+
+  const handelDragEnd = () => {
+    setIsDrag(false)
+  }
+
+  const handelDragMove = e => {
+    if (isDrag) {
+      scrollRef.current.scrollLeft = startX - e.pageX
+    }
+  }
+
+  return (
+    <FilterStyle
+      ref={scrollRef}
+      onMouseDown={handelDragStart}
+      onMouseMove={handelDragMove}
+      onMouseUp={handelDragEnd}
+      onMouseLeave={handelDragEnd}
+    >
+      {filterRendering()}
+    </FilterStyle>
+  )
 }
 
 export default Filter
@@ -137,10 +169,16 @@ const FilterStyle = styled.div`
   user-select: none;
   cursor: pointer;
   width: 100%;
-  padding: 18px 0px;
+  padding: 18px 20px;
   display: flex;
+  flex-direction: row;
   font-size: 14px;
-  justify-content: center;
   border-top: 1px solid #000;
-  gap: 12px;
+  gap: 16px;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 `
