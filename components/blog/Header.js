@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import '@fontsource/suez-one'
 import * as FaIcons from 'react-icons/fa'
 
 const Header = () => {
@@ -36,7 +35,7 @@ const HeaderStyle = styled.div`
   justify-content: space-between;
 
   .title {
-    font-family: 'Poppins', serif;
+    font-family: var(--font-poppins);
     font-weight: 800;
     font-size: 30px;
     span {

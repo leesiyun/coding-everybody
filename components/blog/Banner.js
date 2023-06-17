@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import siyunCharacter from '@/assets/siyun-icon.jpg'
-import '@fontsource/poppins'
-import '@fontsource/poppins/700.css'
 
 const Banner = () => {
   return (
@@ -36,7 +34,7 @@ const BannerStyle = styled.div`
     height: 540px;
     margin: 50px auto 28px auto;
     display: flex;
-    font-family: Poppins, sans-serif;
+    font-family: var(--font-poppins);
     font-size: 16px;
     padding: 0 40px;
     justify-content: center;
@@ -87,7 +85,7 @@ const BannerStyle = styled.div`
       .title {
         position: relative;
         z-index: 1;
-        font-family: 'Poppins', serif;
+        font-family: var(--font-poppins);
         font-weight: 800;
         font-size: 140px;
         display: flex;

@@ -3,17 +3,18 @@ import {useRef, useState} from 'react'
 
 import {
   Css,
-  EsLint,
-  FontAwesome,
+  Eslint,
+  Fontawesome,
   Gatsby,
   Html,
-  JavaScript,
-  NextJS,
+  Javascript,
+  Nextjs,
   Notion,
-  StyledComponents,
-  TypeScript,
+  Styledcomponents,
+  Typescript,
   Vue,
-} from '../../assets/filterIcon'
+} from '@/assets/filterIcon'
+
 import FilterButton from './FilterButton'
 
 const Filter = ({posts}) => {
@@ -39,7 +40,7 @@ const Filter = ({posts}) => {
       if (filterName === '\bESlint')
         return (
           <FilterButton key={index}>
-            <EsLint className="icon_image eslint" />
+            <Eslint className="icon_image css" />
             ESlint
           </FilterButton>
         )
@@ -47,7 +48,7 @@ const Filter = ({posts}) => {
       if (filterName === 'FontAwesome')
         return (
           <FilterButton key={index}>
-            <FontAwesome className="icon_image font-awesome" />
+            <Fontawesome className="icon_image font-awesome" />
             FontAwesome
           </FilterButton>
         )
@@ -71,7 +72,7 @@ const Filter = ({posts}) => {
       if (filterName === 'JavaScript')
         return (
           <FilterButton key={index}>
-            <JavaScript className="icon_image javascript" />
+            <Javascript className="icon_image javascript" />
             JavaScript
           </FilterButton>
         )
@@ -79,7 +80,7 @@ const Filter = ({posts}) => {
       if (filterName === 'Next.js')
         return (
           <FilterButton key={index}>
-            <NextJS className="icon_image next_js" />
+            <Nextjs className="icon_image next_js" />
             Next.js
           </FilterButton>
         )
@@ -95,7 +96,7 @@ const Filter = ({posts}) => {
       if (filterName === 'Styled Components')
         return (
           <FilterButton key={index}>
-            <StyledComponents className="icon_image styled-components" />
+            <Styledcomponents className="icon_image styled-components" />
             Styled Components
           </FilterButton>
         )
@@ -103,7 +104,7 @@ const Filter = ({posts}) => {
       if (filterName === 'TypeScript')
         return (
           <FilterButton key={index}>
-            <TypeScript className="icon_image typescript" />
+            <Typescript className="icon_image typescript" />
             TypeScript
           </FilterButton>
         )
@@ -116,6 +117,14 @@ const Filter = ({posts}) => {
           </FilterButton>
         )
 
+      if (filterName === 'Vue-Multiselect')
+        return (
+          <FilterButton key={index}>
+            <Vue className="icon_image vue" />
+            Vue-Multiselect
+          </FilterButton>
+        )
+
       if (filterName === 'error')
         return <FilterButton key={index}>error</FilterButton>
 
@@ -124,9 +133,6 @@ const Filter = ({posts}) => {
 
       if (filterName === 'Sanity.io')
         return <FilterButton key={index}>Sanity.io</FilterButton>
-
-      if (filterName === 'Vue-Multiselect')
-        return <FilterButton key={index}>Vue-Multiselect</FilterButton>
     })
   }
 
