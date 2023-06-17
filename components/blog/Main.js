@@ -45,10 +45,7 @@ const MainStyle = styled.div`
       padding: 60px 40px 40px 40px;
     }
     @media (max-width: 500px) {
-      padding: 60px 20px 40px 20px;
-    }
-    @media (max-width: 300px) {
-      padding: 60px 10px 40px 10px;
+      padding: 50px 20px 40px 20px;
     }
   }
 `
