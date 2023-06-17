@@ -7,7 +7,12 @@ import '@fontsource/poppins/700.css'
 const Banner = () => {
   return (
     <BannerStyle>
-      <Image src={siyunCharacter} alt="siyun character" className="image" />
+      <Image
+        src={siyunCharacter}
+        alt="siyun character"
+        className="image"
+        priority="true"
+      />
       <div className="banner">
         <div className="title">
           <span>SIYUN</span>LOG

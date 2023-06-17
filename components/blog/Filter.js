@@ -169,16 +169,11 @@ const FilterStyle = styled.div`
   user-select: none;
   cursor: pointer;
   width: 100%;
-  padding: 18px 20px;
+  padding: 18px 30px;
   display: flex;
   flex-direction: row;
   font-size: 14px;
   border-top: 1px solid #000;
   gap: 16px;
   overflow-y: auto;
-  -ms-overflow-style: none; /* IE, Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
 `
