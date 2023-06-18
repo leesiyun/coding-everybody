@@ -7,7 +7,6 @@ import styled from 'styled-components'
 
 import {Header, Comments} from '@/components/blog'
 
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
 const Code = dynamic(() =>
@@ -17,47 +16,30 @@ const Collection = dynamic(() =>
   import('react-notion-x/build/third-party/collection').then(m => m.Collection),
 )
 
-const Post = ({recordMap, post}) => {
-  const isFile = post[0].icon?.type === 'file'
-  const isEmoji = post[0].icon?.type === 'emoji'
-  return (
-    <PostStyle>
-      <Header />
-      <div className="post-header">
-        <div className="post-title">
-          <div className="post-icon">
-            {isFile && (
-              <Image
-                src={post[0].icon?.file.url}
-                priority="true"
-                className="card-image-icon"
-                width={50}
-                height={50}
-                alt="icon"
-              />
-            )}
-            {isEmoji && <div className="card-icon">{post.icon?.emoji}</div>}
-          </div>
-          {post[0].properties.title.title[0].plain_text}
-        </div>
+const Post = ({recordMap, post}) => (
+  <PostStyle>
+    <Header />
+    <div className="post-header">
+      <div className="post-title">
+        {post[0].properties.title.title[0].plain_text}
       </div>
+    </div>
 
-      <div className="post-content">
-        <NotionRenderer
-          recordMap={recordMap}
-          fullPage={true}
-          darkMode={false}
-          className="notion-post"
-          components={{
-            Code,
-            Collection,
-          }}
-        />
-      </div>
-      <Comments />
-    </PostStyle>
-  )
-}
+    <div className="post-content">
+      <NotionRenderer
+        recordMap={recordMap}
+        fullPage={true}
+        darkMode={false}
+        className="notion-post"
+        components={{
+          Code,
+          Collection,
+        }}
+      />
+    </div>
+    <Comments />
+  </PostStyle>
+)
 
 export default Post
 
@@ -65,7 +47,10 @@ const PostStyle = styled.div`
   padding-bottom: 80px;
   .post-header {
     display: flex;
-    padding: 30px 75px 50px 75px;
+    padding: 30px 75px 20px 75px;
+    @media (max-width: 548px) {
+      padding: 30px 20px 20px 20px;
+    }
     border-bottom: 1px solid #000000;
   }
   .post-title {
@@ -75,12 +60,11 @@ const PostStyle = styled.div`
     margin: 0 auto;
     font-weight: 600;
     line-height: 1.2;
-    .post-icon {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
+    margin-top: 80px;
+    @media (max-width: 400px) {
+      height: 180px;
     }
+    height: 120px;
   }
 
   .post-content {
@@ -90,7 +74,7 @@ const PostStyle = styled.div`
       background-color: #f0ede8;
       margin: 0 40px;
       @media (max-width: 500px) {
-        margin: 0 20px;
+        margin: 0 10px;
       }
       .notion-header,
       .notion-title {
@@ -106,9 +90,12 @@ const PostStyle = styled.div`
         min-height: 100px;
       }
       .notion-page-content {
-        padding: 30px 50px 80px 50px;
         @media (max-width: 500px) {
-          padding: 20px 20px 80px 20px;
+          padding: 30px 40px 80px 40px;
+        }
+        padding: 30px 20px 80px 20px;
+        @media (max-width: 500px) {
+          padding: 20px 10px 80px 10px;
         }
         border-radius: 30px;
         border: 1px solid #000000;
@@ -118,7 +105,16 @@ const PostStyle = styled.div`
         }
       }
       .notion-page-icon-hero {
-        display: none;
+        position: absolute;
+        top: -266px;
+        @media (max-width: 400px) {
+          top: -326px;
+        }
+        .notion-page-icon {
+          max-width: 50px;
+          max-height: 50px;
+          font-size: 50px;
+        }
       }
       .notion-collection-row {
         margin: 40px auto 0 auto;
@@ -134,22 +130,8 @@ const PostStyle = styled.div`
   .utterances {
     width: 90%;
     max-width: 1318px;
-  }
-
-  @media (max-width: 500px) {
-    .post-header {
-      padding: 70px 20px 60px 20px;
-      .post-title {
-        padding: 0 0 10px 10px;
-      }
-      .post-date {
-        padding-bottom: 20px;
-      }
-    }
-    .notion-post {
-      .notion-full-width {
-        padding: 0 20px;
-      }
+    em {
+      background-color: red;
     }
   }
 `
