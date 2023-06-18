@@ -42,10 +42,10 @@ const BannerStyle = styled.div`
       height: 470px;
     }
     @media (max-width: 420px) {
-      height: 390px;
+      height: 420px;
     }
     @media (max-width: 320px) {
-      height: 370px;
+      height: 390px;
     }
     .image {
       position: absolute;
@@ -59,9 +59,9 @@ const BannerStyle = styled.div`
       margin-right: 25px;
       @media (max-width: 800px) {
         margin: 0 auto;
+        top: 220px;
         width: 340px;
         height: 340px;
-        top: 180px;
         left: 10%;
       }
       @media (max-width: 420px) {
@@ -72,6 +72,7 @@ const BannerStyle = styled.div`
       @media (max-width: 320px) {
         width: 260px;
         height: 260px;
+        top: 200px;
       }
     }
     .banner {
@@ -107,6 +108,7 @@ const BannerStyle = styled.div`
         }
         @media (max-width: 320px) {
           font-size: 80px;
+          line-height: 80px;
           margin: auto 20px;
         }
       }
@@ -132,8 +134,8 @@ const BannerStyle = styled.div`
           font-size: 16px;
           width: 180px;
           height: 46px;
-          top: 50px;
           left: 30%;
+          top: 90px;
         }
       }
     }
