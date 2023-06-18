@@ -1,5 +1,6 @@
 export {default as Header} from '@/components/blog/Header'
 export {default as Banner} from '@/components/blog/Banner'
 export {default as Filter} from '@/components/blog/Filter'
+export {default as Search} from '@/components/blog/Search'
 export {default as Main} from '@/components/blog/Main'
 export {default as Comments} from '@/components/blog/Comments'

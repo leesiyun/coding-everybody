@@ -1,19 +1,25 @@
-import {notionhq, databaseId} from '../lib/notion'
-import Header from '../components/blog/Header'
-import Search from '../components/blog/Search'
-import Main from '../components/blog/Main'
+import {notionhq, databaseId} from '@/lib/notion'
+import {useState} from 'react'
 
-const SearchPage = ({posts}) => {
+import {Header, Search, Main} from '@/components/blog'
+
+const SearchPost = ({posts}) => {
+  const [value, setValue] = useState('')
+
+  const searchPost = posts.filter(({properties}) =>
+    properties.title.title[0].plain_text.toLowerCase().includes(value),
+  )
+
   return (
     <>
       <Header />
-      <Search />
-      <Main posts={posts} />
+      <Search setValue={setValue} />
+      <Main posts={searchPost} />
     </>
   )
 }
 
-export default SearchPage
+export default SearchPost
 
 export const getStaticProps = async () => {
   const response = await notionhq.databases.query({

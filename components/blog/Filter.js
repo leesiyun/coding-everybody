@@ -183,6 +183,7 @@ const FilterStyle = styled.div`
   flex-direction: row;
   font-size: 14px;
   border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   gap: 16px;
   overflow-y: auto;
 `
