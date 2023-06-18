@@ -5,9 +5,12 @@ import * as FaIcons from 'react-icons/fa'
 const Header = () => {
   return (
     <HeaderStyle>
-      <div className="title">
-        <span>SIYUN</span>LOG
-      </div>
+      <Link href="/">
+        <div className="title">
+          <span>SIYUN</span>LOG
+        </div>
+      </Link>
+
       <Link href="/search">
         <div className="icon">
           <FaIcons.FaSearch />
@@ -38,6 +41,7 @@ const HeaderStyle = styled.div`
     font-family: var(--font-poppins);
     font-weight: 800;
     font-size: 30px;
+    color: #000;
     span {
       color: #fff;
       text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
