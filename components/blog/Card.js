@@ -11,6 +11,7 @@ const Card = ({post}) => {
           {isFile && (
             <Image
               src={post.icon?.file.url}
+              priority="true"
               className="card-image-icon"
               width={60}
               height={60}
