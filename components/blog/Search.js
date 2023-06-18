@@ -2,13 +2,14 @@ import styled from 'styled-components'
 import {useRef, useEffect} from 'react'
 import * as FaIcons from 'react-icons/fa'
 
-const Search = ({setValue}) => {
+const Search = ({setSearchValue}) => {
   const inputRef = useRef(null)
   useEffect(() => {
     if (inputRef.current !== null) inputRef.current.focus()
-  })
+  }, [])
 
-  const handleChange = e => setValue(e.target.value.toLowerCase())
+  const handleChange = e =>
+    setSearchValue(e.target.value.replaceAll(' ', '').toLowerCase())
 
   return (
     <SearchStyle>

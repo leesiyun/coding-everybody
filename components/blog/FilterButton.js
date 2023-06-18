@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-const FilterButton = ({children}) => {
+const FilterButton = ({children, filterName, setFilterValue}) => {
+  const handleClick = filterName => setFilterValue(filterName)
+
   return (
-    <FilterButtonStyle>
+    <FilterButtonStyle onClick={() => handleClick(filterName)}>
       <div className="icon">{children}</div>
     </FilterButtonStyle>
   )

@@ -2,11 +2,14 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import * as FaIcons from 'react-icons/fa'
 
-const Header = () => {
+const Header = ({setFilterValue}) => {
+  const handleClick = () => {
+    if (setFilterValue) setFilterValue('')
+  }
   return (
     <HeaderStyle>
       <Link href="/">
-        <div className="title">
+        <div className="title" onClick={handleClick}>
           <span>SIYUN</span>LOG
         </div>
       </Link>

@@ -1,14 +1,24 @@
 import {notionhq, databaseId} from '../lib/notion'
+import {useState, useEffect} from 'react'
+
 import {Header, Banner, Filter, Main} from '@/components/blog'
 
 const Home = ({posts}) => {
-  console.log('一緒に働きませんか？😎　leesiyun.dev@gmail.com')
+  useEffect(() => {
+    console.log('一緒に働きませんか？😎　leesiyun.dev@gmail.com')
+  }, [])
+
+  const [filterValue, setFilterValue] = useState('')
+
+  const filteredPost = posts.filter(({properties}) =>
+    properties.tag?.multi_select.some(tag => tag.name === filterValue),
+  )
   return (
     <>
-      <Header />
+      <Header setFilterValue={setFilterValue} />
       <Banner />
-      <Filter posts={posts} />
-      <Main posts={posts} />
+      <Filter posts={posts} setFilterValue={setFilterValue} />
+      <Main posts={filteredPost.length ? filteredPost : posts} />
     </>
   )
 }

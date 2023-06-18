@@ -17,7 +17,7 @@ import {
 
 import FilterButton from './FilterButton'
 
-const Filter = ({posts}) => {
+const Filter = ({posts, setFilterValue}) => {
   const filterArray = []
   const isTag = posts.filter(
     post => post.properties.tag.multi_select.length > 0,
@@ -31,7 +31,11 @@ const Filter = ({posts}) => {
     return filterNames.map((filterName, index) => {
       if (filterName === 'CSS')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Css className="icon_image css" />
             CSS
           </FilterButton>
@@ -39,7 +43,11 @@ const Filter = ({posts}) => {
 
       if (filterName === '\bESlint')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Eslint className="icon_image css" />
             ESlint
           </FilterButton>
@@ -47,7 +55,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'FontAwesome')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Fontawesome className="icon_image font-awesome" />
             FontAwesome
           </FilterButton>
@@ -55,7 +67,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'Gatsby')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Gatsby className="icon_image gatsby" />
             Gatsby
           </FilterButton>
@@ -63,7 +79,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'HTML')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Html className="icon_image html" />
             HTML
           </FilterButton>
@@ -71,7 +91,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'JavaScript')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Javascript className="icon_image javascript" />
             JavaScript
           </FilterButton>
@@ -79,7 +103,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'Next.js')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Nextjs className="icon_image next_js" />
             Next.js
           </FilterButton>
@@ -87,7 +115,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'NotionAPI')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Notion className="icon_image notion" />
             NotionAPI
           </FilterButton>
@@ -95,7 +127,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'Styled Components')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Styledcomponents className="icon_image styled-components" />
             Styled Components
           </FilterButton>
@@ -103,7 +139,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'TypeScript')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Typescript className="icon_image typescript" />
             TypeScript
           </FilterButton>
@@ -111,7 +151,11 @@ const Filter = ({posts}) => {
 
       if (filterName === 'Vue')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Vue className="icon_image vue" />
             Vue
           </FilterButton>
@@ -119,20 +163,48 @@ const Filter = ({posts}) => {
 
       if (filterName === 'Vue-Multiselect')
         return (
-          <FilterButton key={index}>
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
             <Vue className="icon_image vue" />
             Vue-Multiselect
           </FilterButton>
         )
 
       if (filterName === 'error')
-        return <FilterButton key={index}>error</FilterButton>
+        return (
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
+            error
+          </FilterButton>
+        )
 
       if (filterName === 'husky')
-        return <FilterButton key={index}>husky</FilterButton>
+        return (
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
+            husky
+          </FilterButton>
+        )
 
       if (filterName === 'Sanity.io')
-        return <FilterButton key={index}>Sanity.io</FilterButton>
+        return (
+          <FilterButton
+            key={index}
+            filterName={filterName}
+            setFilterValue={setFilterValue}
+          >
+            Sanity.io
+          </FilterButton>
+        )
     })
   }
 
@@ -140,17 +212,17 @@ const Filter = ({posts}) => {
   const [isDrag, setIsDrag] = useState(false)
   const [startX, setStartX] = useState()
 
-  const handelDragStart = e => {
+  const handleDragStart = e => {
     e.preventDefault()
     setIsDrag(true)
     setStartX(e.pageX + scrollRef.current.scrollLeft)
   }
 
-  const handelDragEnd = () => {
+  const handleDragEnd = () => {
     setIsDrag(false)
   }
 
-  const handelDragMove = e => {
+  const handleDragMove = e => {
     if (isDrag) {
       scrollRef.current.scrollLeft = startX - e.pageX
     }
@@ -159,10 +231,10 @@ const Filter = ({posts}) => {
   return (
     <FilterStyle
       ref={scrollRef}
-      onMouseDown={handelDragStart}
-      onMouseMove={handelDragMove}
-      onMouseUp={handelDragEnd}
-      onMouseLeave={handelDragEnd}
+      onMouseDown={handleDragStart}
+      onMouseMove={handleDragMove}
+      onMouseUp={handleDragEnd}
+      onMouseLeave={handleDragEnd}
     >
       {filterRendering()}
     </FilterStyle>

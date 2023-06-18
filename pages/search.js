@@ -4,17 +4,20 @@ import {useState} from 'react'
 import {Header, Search, Main} from '@/components/blog'
 
 const SearchPost = ({posts}) => {
-  const [value, setValue] = useState('')
+  const [searchValue, setSearchValue] = useState('')
 
-  const searchPost = posts.filter(({properties}) =>
-    properties.title.title[0].plain_text.toLowerCase().includes(value),
+  const searchedPost = posts.filter(({properties}) =>
+    properties.title.title[0].plain_text
+      .replaceAll(' ', '')
+      .toLowerCase()
+      .includes(searchValue),
   )
 
   return (
     <>
       <Header />
-      <Search setValue={setValue} />
-      <Main posts={searchPost} />
+      <Search setSearchValue={setSearchValue} />
+      <Main posts={searchedPost} />
     </>
   )
 }
