@@ -29,6 +29,9 @@ const SearchStyle = styled.div`
   display: flex;
   justify-content: center;
   padding: 16px 0 0 0;
+  @media (max-width: 500px) {
+    padding: 0;
+  }
   .input-wrapper {
     width: 100%;
     margin: 0 100px;
@@ -39,9 +42,6 @@ const SearchStyle = styled.div`
     @media (max-width: 600px) {
       margin: 0 20px;
       max-width: 400px;
-    }
-    @media (max-width: 500px) {
-      margin: 0 20px;
     }
     .icon {
       font-size: 24px;

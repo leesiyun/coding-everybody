@@ -27,7 +27,7 @@ export default Header
 
 const HeaderStyle = styled.div`
   width: 100%;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
   font-size: 20px;
   padding: 0 80px 8px 40px;
   @media (max-width: 800px) {

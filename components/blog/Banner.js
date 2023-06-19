@@ -31,7 +31,7 @@ const BannerStyle = styled.div`
   .banne-wrapper {
     max-width: 900px;
     width: 100%;
-    height: 540px;
+    height: 550px;
     margin: 50px auto 28px auto;
     display: flex;
     font-family: var(--font-poppins);
@@ -39,7 +39,7 @@ const BannerStyle = styled.div`
     padding: 0 40px;
     justify-content: center;
     @media (max-width: 800px) {
-      height: 470px;
+      height: 480px;
     }
     @media (max-width: 420px) {
       height: 420px;

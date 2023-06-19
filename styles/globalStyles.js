@@ -31,6 +31,47 @@ img {
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
+
+  .css {
+    fill: #1572b6;
+  }
+
+  .eslint {
+    fill: #4b32c3;
+  }
+
+  .font-awesome {
+    fill: #528dd7;
+  }
+
+  .gatsby {
+    fill: #663399;
+  }
+
+  .html {
+    fill: #e34f26;
+  }
+
+  .javascript {
+    fill: #f7df1e;
+  }
+
+  .next_js,
+  .notion {
+    fill: #000000;
+  }
+
+  .styled-components {
+    fill: #db7093;
+  }
+
+  .typescript {
+    fill: #3178c6;
+  }
+
+  .vue {
+    fill: #4fc08d;
+  }
 `
 
 export default GlobalStyle

@@ -1,23 +1,24 @@
 import {notionhq, databaseId} from '@/lib/notion'
 import {useState} from 'react'
 
-import {Header, Search, Main} from '@/components/blog'
+import {Header, Search} from '@/components/blog'
+import {Main} from '@/components/search'
+import {getTagNames} from '@/services/tag'
 
 const SearchPost = ({posts}) => {
   const [searchValue, setSearchValue] = useState('')
 
-  const searchedPost = posts.filter(({properties}) =>
-    properties.title.title[0].plain_text
-      .replaceAll(' ', '')
-      .toLowerCase()
-      .includes(searchValue),
+  const tagNames = getTagNames(posts)
+
+  const searchedTagNames = tagNames.filter(name =>
+    name.replaceAll(' ', '').toLowerCase().includes(searchValue),
   )
 
   return (
     <>
       <Header />
       <Search setSearchValue={setSearchValue} />
-      <Main posts={searchedPost} />
+      <Main tagNames={searchedTagNames} />
     </>
   )
 }

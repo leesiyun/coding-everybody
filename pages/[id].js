@@ -47,9 +47,9 @@ const PostStyle = styled.div`
   padding-bottom: 80px;
   .post-header {
     display: flex;
-    padding: 30px 75px 20px 75px;
+    padding: 40px 75px 20px 75px;
     @media (max-width: 548px) {
-      padding: 30px 20px 20px 20px;
+      padding: 40px 20px 20px 20px;
     }
     border-bottom: 1px solid #000000;
   }
@@ -62,7 +62,7 @@ const PostStyle = styled.div`
     line-height: 1.2;
     margin-top: 80px;
     @media (max-width: 400px) {
-      height: 180px;
+      height: 170px;
     }
     height: 120px;
   }
