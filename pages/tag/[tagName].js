@@ -1,7 +1,7 @@
 import {notionhq, databaseId} from '@/lib/notion'
 import {getTagNames} from '@/services/tag'
 import {Header, Main} from '@/components/blog'
-import {TagHeader} from '@/components/Tag'
+import {TagHeader} from '@/components'
 
 const Tag = ({posts, tagName}) => (
   <>
