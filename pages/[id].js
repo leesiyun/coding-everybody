@@ -1,10 +1,10 @@
-import {notion, notionhq, databaseId} from '../lib/notion'
 import {NotionRenderer} from 'react-notion-x'
 import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'katex/dist/katex.min.css'
 import styled from 'styled-components'
 
+import {notion, notionhq, databaseId} from '@/lib/notion'
 import {Header, Comments} from '@/components/blog'
 
 import dynamic from 'next/dynamic'

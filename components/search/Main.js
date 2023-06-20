@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import {Card} from '@/components/search'
@@ -6,7 +7,9 @@ const Main = ({tagNames}) => (
   <MainStyle>
     <div className="card-wrapper">
       {tagNames.map((tagName, index) => (
-        <Card key={index} tagName={tagName} />
+        <Link href={`/tag/${tagName}`}>
+          <Card key={index} tagName={tagName} />
+        </Link>
       ))}
     </div>
   </MainStyle>
@@ -52,5 +55,8 @@ const MainStyle = styled.div`
     @media (max-width: 300px) {
       grid-template-columns: repeat(1, 1fr);
     }
+  }
+  a {
+    color: #000;
   }
 `

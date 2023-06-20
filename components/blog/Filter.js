@@ -1,7 +1,8 @@
-import styled from 'styled-components'
 import {useRef, useState} from 'react'
+import Link from 'next/link'
+import styled from 'styled-components'
 
-import TagButton from './TagButton'
+import {TagButton} from '@/components/tag'
 import {getTagNames} from '@/services/tag'
 
 const Filter = ({posts, setFilterValue}) => {
@@ -36,11 +37,13 @@ const Filter = ({posts, setFilterValue}) => {
       onMouseLeave={handleDragEnd}
     >
       {tagNames.map((tagName, index) => (
-        <TagButton
-          key={index}
-          tagName={tagName}
-          setFilterValue={setFilterValue}
-        />
+        <Link href={`/tag/${tagName}`}>
+          <TagButton
+            key={index}
+            tagName={tagName}
+            setFilterValue={setFilterValue}
+          />
+        </Link>
       ))}
     </FilterStyle>
   )
@@ -63,4 +66,7 @@ const FilterStyle = styled.div`
   border-bottom: 1px solid #000;
   gap: 16px;
   overflow-y: auto;
+  a {
+    color: #000;
+  }
 `

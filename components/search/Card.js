@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as FaIcons from 'react-icons/fa'
 
 import {
   Css,
@@ -14,128 +15,135 @@ import {
   Vue,
 } from '@/assets/filterIcon'
 
-import * as FaIcons from 'react-icons/fa'
 
 const Card = ({tagName}) => {
-  if (tagName === 'CSS')
+  if (tagName === 'css')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Css className="icon css" />
         </div>
-        <div>{tagName}</div>
+        <div>CSS</div>
       </CardStyle>
     )
 
-  if (tagName === '\bESlint')
+  if (tagName === '\beslint')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Eslint className="icon eslint" />
         </div>
-        <div>{tagName}</div>
+        <div>ESLint</div>
       </CardStyle>
     )
 
-  if (tagName === 'FontAwesome')
+  if (tagName === 'font-awesome')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Fontawesome className="icon font-awesome" />
         </div>
-        <div>{tagName}</div>
+        <div>FontAwesome</div>
       </CardStyle>
     )
 
-  if (tagName === 'Gatsby')
+  if (tagName === 'gatsby')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Gatsby className="icon gatsby" />
         </div>
-        <div>{tagName}</div>
+        <div>Gatsby</div>
       </CardStyle>
     )
 
-  if (tagName === 'HTML')
+  if (tagName === 'html')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Html className="icon html" />
         </div>
-        <div>{tagName}</div>
+        <div>HTML</div>
       </CardStyle>
     )
 
-  if (tagName === 'JavaScript')
+  if (tagName === 'javascript')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Javascript className="icon javascript" />
         </div>
-        <div>{tagName}</div>
+        <div>JavaScript</div>
       </CardStyle>
     )
 
-  if (tagName === 'Next.js')
+  if (tagName === 'nextjs')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Nextjs className="icon next_js" />
         </div>
-        <div>{tagName}</div>
+        <div>Next.js</div>
       </CardStyle>
     )
 
-  if (tagName === 'NotionAPI')
+  if (tagName === 'notion-api')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Notion className="icon notion" />
         </div>
-        <div>{tagName}</div>
+        <div>Notion API</div>
       </CardStyle>
     )
 
-  if (tagName === 'Styled Components')
+  if (tagName === 'styled-components')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Styledcomponents className="icon styled-components" />
         </div>
-        <div>{tagName}</div>
+        <div>Styled Components</div>
       </CardStyle>
     )
 
-  if (tagName === 'TypeScript')
+  if (tagName === 'typescript')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Typescript className="icon typescript" />
         </div>
-        <div>{tagName}</div>
+        <div>TypeScript</div>
       </CardStyle>
     )
 
-  if (tagName === 'Vue' || tagName === 'Vue-Multiselect')
+  if (tagName === 'vue' || tagName === 'vue-multiselect')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <Vue className="icon vue" />
         </div>
-        <div>{tagName}</div>
+        <div>
+          {(tagName === 'vue' && 'Vue') ||
+            (tagName === 'vue-multiselect' && 'Vue-Multiselect')}
+        </div>
       </CardStyle>
     )
 
-  if (tagName === 'error' || tagName === 'husky' || tagName === 'Sanity.io')
+  if (tagName === 'error' || tagName === 'husky' || tagName === 'sanity-io')
     return (
       <CardStyle>
         <div className="icon-wrapper">
           <FaIcons.FaHashtag className="icon hash" />
         </div>
-        <div>{tagName}</div>
+        <div>
+          {(tagName === 'error' && 'error') ||
+            (tagName === 'husky' && 'husky') ||
+            (tagName === 'sanity-io' && 'Sanity.io')}
+        </div>
       </CardStyle>
     )
+  return null
 }
 
 export default Card

@@ -4,6 +4,7 @@ import Image from 'next/image'
 const Card = ({post}) => {
   const isFile = post.icon?.type === 'file'
   const isEmoji = post.icon?.type === 'emoji'
+
   return (
     <CardStyle>
       <div>

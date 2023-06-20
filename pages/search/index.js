@@ -1,6 +1,6 @@
-import {notionhq, databaseId} from '@/lib/notion'
 import {useState} from 'react'
 
+import {notionhq, databaseId} from '@/lib/notion'
 import {Header, Search} from '@/components/blog'
 import {Main} from '@/components/search'
 import {getTagNames} from '@/services/tag'
