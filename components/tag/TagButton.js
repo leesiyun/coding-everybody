@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import {
@@ -116,7 +117,11 @@ const TagButton = ({tagName}) => {
   }
 
   return (
-    <TagButtonStyle tagName={tagName}>{getTagContent(tagName)}</TagButtonStyle>
+    <Link href={`/tag/${tagName}`}>
+      <TagButtonStyle tagName={tagName}>
+        {getTagContent(tagName)}
+      </TagButtonStyle>
+    </Link>
   )
 }
 

@@ -1,4 +1,5 @@
 import {notionhq, databaseId} from '@/lib/notion'
+
 import {getTagNames} from '@/services/tag'
 import {Header, Main} from '@/components/blog'
 import {TagHeader} from '@/components/tag'
@@ -33,7 +34,6 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({params}) => {
-  console.log(params)
   const tagName = params.tagName
   const response = await notionhq.databases.query({
     database_id: databaseId,

@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import {useRouter} from 'next/router'
 import {useRef, useEffect} from 'react'
 import * as FaIcons from 'react-icons/fa'
 
-const Search = ({setSearchValue}) => {
+const Search = ({searchValue, setSearchValue}) => {
+  const router = useRouter()
   const inputRef = useRef(null)
   useEffect(() => {
     if (inputRef.current !== null) inputRef.current.focus()
@@ -11,13 +13,15 @@ const Search = ({setSearchValue}) => {
   const handleChange = e =>
     setSearchValue(e.target.value.replaceAll(' ', '').toLowerCase())
 
+  const handleClick = () => router.push(`/search/${searchValue}`)
+
   return (
     <SearchStyle>
       <div className="input-wrapper">
         <div className="icon">
           <FaIcons.FaSearch />
         </div>
-        <input ref={inputRef} onChange={handleChange} />
+        <input ref={inputRef} onChange={handleChange} onClick={handleClick} />
       </div>
     </SearchStyle>
   )

@@ -1,25 +1,12 @@
+import Link from 'next/link'
 import styled from 'styled-components'
-import Image from 'next/image'
 
-const Card = ({post}) => {
-  const isFile = post.icon?.type === 'file'
-  const isEmoji = post.icon?.type === 'emoji'
-
-  return (
+const Card = ({post}) => (
+  <Link href={`/${post.id.replaceAll('-', '')}`}>
     <CardStyle>
       <div>
         <div className="card-image">
-          {isFile && (
-            <Image
-              src={post.icon?.file.url}
-              priority="true"
-              className="card-image-icon"
-              width={60}
-              height={60}
-              alt="icon"
-            />
-          )}
-          {isEmoji && <div className="card-icon">{post.icon?.emoji}</div>}
+          <div className="card-icon">{post.icon?.emoji}</div>
         </div>
       </div>
       <div className="card-title">
@@ -27,8 +14,8 @@ const Card = ({post}) => {
       </div>
       <div className="card-date">{post.last_edited_time.slice(0, 10)}</div>
     </CardStyle>
-  )
-}
+  </Link>
+)
 
 export default Card
 

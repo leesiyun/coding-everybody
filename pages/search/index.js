@@ -17,7 +17,7 @@ const SearchPost = ({posts}) => {
   return (
     <>
       <Header />
-      <Search setSearchValue={setSearchValue} />
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       <Main tagNames={searchedTagNames} />
     </>
   )

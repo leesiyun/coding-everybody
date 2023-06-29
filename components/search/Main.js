@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styled from 'styled-components'
 
 import {Card} from '@/components/search'
@@ -7,9 +6,7 @@ const Main = ({tagNames}) => (
   <MainStyle>
     <div className="card-wrapper">
       {tagNames.map((tagName, index) => (
-        <Link href={`/tag/${tagName}`}>
-          <Card key={index} tagName={tagName} />
-        </Link>
+        <Card key={index} tagName={tagName} />
       ))}
     </div>
   </MainStyle>

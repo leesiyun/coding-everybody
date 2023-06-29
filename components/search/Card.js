@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 import * as FaIcons from 'react-icons/fa'
 
@@ -14,7 +15,6 @@ import {
   Typescript,
   Vue,
 } from '@/assets/filterIcon'
-
 
 const Card = ({tagName}) => {
   if (tagName === 'css')
@@ -132,16 +132,18 @@ const Card = ({tagName}) => {
 
   if (tagName === 'error' || tagName === 'husky' || tagName === 'sanity-io')
     return (
-      <CardStyle>
-        <div className="icon-wrapper">
-          <FaIcons.FaHashtag className="icon hash" />
-        </div>
-        <div>
-          {(tagName === 'error' && 'error') ||
-            (tagName === 'husky' && 'husky') ||
-            (tagName === 'sanity-io' && 'Sanity.io')}
-        </div>
-      </CardStyle>
+      <Link href={`/tag/${tagName}`}>
+        <CardStyle>
+          <div className="icon-wrapper">
+            <FaIcons.FaHashtag className="icon hash" />
+          </div>
+          <div>
+            {(tagName === 'error' && 'error') ||
+              (tagName === 'husky' && 'husky') ||
+              (tagName === 'sanity-io' && 'Sanity.io')}
+          </div>
+        </CardStyle>
+      </Link>
     )
   return null
 }

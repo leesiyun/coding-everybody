@@ -1,5 +1,4 @@
 import {useRef, useState} from 'react'
-import Link from 'next/link'
 import styled from 'styled-components'
 
 import {TagButton} from '@/components/tag'
@@ -37,13 +36,11 @@ const Filter = ({posts, setFilterValue}) => {
       onMouseLeave={handleDragEnd}
     >
       {tagNames.map((tagName, index) => (
-        <Link href={`/tag/${tagName}`}>
-          <TagButton
-            key={index}
-            tagName={tagName}
-            setFilterValue={setFilterValue}
-          />
-        </Link>
+        <TagButton
+          key={index}
+          tagName={tagName}
+          setFilterValue={setFilterValue}
+        />
       ))}
     </FilterStyle>
   )
