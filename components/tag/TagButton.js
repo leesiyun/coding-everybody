@@ -106,12 +106,16 @@ const TagButton = ({tagName}) => {
         </>
       )
 
-    if (tagName === 'error' || tagName === 'husky' || tagName === 'sanity-io')
+    if (
+      (tagName === 'error' || tagName === 'husky' || tagName === 'sanity-io',
+      tagNmae === 'pinia')
+    )
       return (
         <>
-          {(tagName === 'error' && 'error') ||
-            (tagName === 'husky' && 'husky') ||
-            (tagName === 'sanity-io' && 'Sanity.io')}
+          {tagName === 'error' ||
+            tagName === 'husky' ||
+            (tagName === 'sanity-io' && 'Sanity.io') ||
+            tagName === 'pinia'}
         </>
       )
   }
