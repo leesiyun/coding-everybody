@@ -120,6 +120,7 @@ const BannerStyle = styled.div`
         height: 50px;
         color: #fff;
         background-color: #000;
+        cursor: pointer;
         border-radius: 10px;
         border: none;
         font-size: 18px;
