@@ -3,6 +3,9 @@ import Image from 'next/image'
 import siyunCharacter from '@/assets/siyun-icon.jpg'
 
 const Banner = () => {
+  const handleButtonClick = () =>
+    window.open('https://www.wantedly.com/id/leesiyun', '_blank')
+
   return (
     <BannerStyle>
       <div className="banne-wrapper">
@@ -17,7 +20,7 @@ const Banner = () => {
             <div className="siyun">SIYUN</div>
             <div className="log">LOG</div>
           </div>
-          <button>Who is Siyun</button>
+          <button onClick={handleButtonClick}>Who is Siyun</button>
         </div>
       </div>
     </BannerStyle>

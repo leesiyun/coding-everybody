@@ -6,9 +6,11 @@ import {
   Eslint,
   Fontawesome,
   Gatsby,
+  Github,
   Html,
   Javascript,
   Nextjs,
+  Nodejs,
   Notion,
   Styledcomponents,
   Typescript,
@@ -57,6 +59,14 @@ const TagButton = ({tagName}) => {
         </>
       )
 
+    if (tagName === 'github')
+      return (
+        <>
+          <Github className="icon github" />
+          Github
+        </>
+      )
+
     if (tagName === 'javascript')
       return (
         <>
@@ -70,6 +80,14 @@ const TagButton = ({tagName}) => {
         <>
           <Nextjs className="icon next_js" />
           Next.js
+        </>
+      )
+
+    if (tagName === 'nodejs')
+      return (
+        <>
+          <Nodejs className="icon node_js" />
+          Node.js
         </>
       )
 
@@ -107,19 +125,20 @@ const TagButton = ({tagName}) => {
       )
 
     if (
-      (tagName === 'error' || tagName === 'husky' || tagName === 'sanity-io',
-      tagNmae === 'pinia')
+      tagName === 'error' ||
+      tagName === 'husky' ||
+      tagName === 'sanity-io' ||
+      tagName === 'pinia'
     )
       return (
         <>
-          {tagName === 'error' ||
-            tagName === 'husky' ||
+          {(tagName === 'error' && 'error') ||
+            (tagName === 'husky' && 'husky') ||
             (tagName === 'sanity-io' && 'Sanity.io') ||
-            tagName === 'pinia'}
+            (tagName === 'pinia' && 'pinia')}
         </>
       )
   }
-
   return (
     <Link href={`/tag/${tagName}`}>
       <TagButtonStyle tagName={tagName}>

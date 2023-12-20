@@ -12,7 +12,7 @@ const Card = ({post}) => (
       <div className="card-title">
         {post.properties.title.title[0]?.plain_text}
       </div>
-      <div className="card-date">{post.last_edited_time.slice(0, 10)}</div>
+      <div className="card-date"></div>
     </CardStyle>
   </Link>
 )

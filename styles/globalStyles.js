@@ -48,6 +48,10 @@ img {
     fill: #663399;
   }
 
+  .github {
+    fill: #181717;
+  }
+
   .html {
     fill: #e34f26;
   }
@@ -71,6 +75,10 @@ img {
 
   .vue {
     fill: #4fc08d;
+  }
+
+  .node_js{
+    fill:#339933;
   }
 `
 
