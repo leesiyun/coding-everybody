@@ -30,6 +30,7 @@ const Banner = () => {
 export default Banner
 
 const BannerStyle = styled.div`
+  user-select: none;
   padding: auto 20px;
   .banne-wrapper {
     max-width: 900px;
